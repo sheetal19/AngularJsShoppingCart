@@ -1,0 +1,98 @@
+<form name="frmProduct" class="form-horizontal" novalidate>
+    <fieldset>
+        <legend>Basic Product Information</legend>
+        <div class="form-group" ng-class="{'has-error':frmProduct.txtProductName.$invalid}" >
+            <label class="col-md-2 control-label" for="txtProductName">Product Name</label>
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="txtProductName" 
+                       name="txtProductName"
+                       type="text" 
+                   placeholder="Product Name (required)"
+                   ng-model="product.productName"
+                   required
+                    ng-minlength="4"
+                    ng-maxlength="12"   />
+                <span class="help-block has-error"
+                      ng-show="frmProduct.txtProductName.$invalid &&
+                               frmProduct.txtProductName.$dirty">
+                     <span ng-show="frmProduct.txtProductName.$error.required">Product name is required.</span>
+                    <span ng-show="frmProduct.txtProductName.$error.minlength">Product name must be at least 4 characters in length.</span>
+                    <span ng-show="frmProduct.txtProductName.$error.maxlength">Product name cannot exceed to 12 characters in length.</span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error':frmProduct.txtProductCode.$invalid}">
+            <label class="col-md-2 control-label" for="txtProductCode">Product Code</label>
+            <div class="col-md-4">
+                <input class="form-control"
+                   id="txtProductCode" 
+                    name="txtProductCode"   type="text" 
+                    ui-mask="AAA-**** (required)"
+                   ng-model="product.productCode"
+                   required/>
+                <span class="help-block has-error"
+                      ng-show="frmProduct.txtProductCode.$invalid &&
+                               frmProduct.txtProductCode.$dirty">
+                    Product code is required.
+                </span>
+            </div>
+        </div>
+        <div class="form-group" >
+            <label class="col-md-2 control-label" for="txtAvailablityDate">Availability</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input class="form-control"
+                    id="txtAvailablityDate" 
+                    type="text"
+                    datepicker-popup="MMM dd, yyyy"
+                    is-open="opened"
+                    ng-model="product.releaseDate"
+                     />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" 
+                            ng-click="fnOpen($event)">
+                     <i class="glyphicon glyphicon-calendar" />
+                    </button>
+                </span>
+                
+                </div>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="txtProductDescription">Description</label>
+            <div class="col-md-10">
+                <textarea class="form-control" 
+                      id="txtProductDescription" 
+                      rows="3" 
+                      placeholder="Description"
+                      ng-model="product.description">
+                </textarea>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px;margin-right:10px;"
+                            ng-click="fnSubmit(frmProduct.$valid)">
+                     Save
+                    </button>
+                </span>
+                <span>
+                    <button class="btn btn-default"
+                            style="width:70px;"
+                            ng-click="fnCancel()">
+                     Cancel
+                    </button>
+                    
+                </span>
+            </div>
+        
+        </div>
+        
+    </fieldset>
+
+</form>

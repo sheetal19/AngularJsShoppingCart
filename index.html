@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>
+         ::Online Shopping Cart::
+        </title>
+        
+        <!--Style sheets-->
+        <link rel="stylesheet" href="css/app.css">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+        
+        <!--Library scripts-->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+        
+        <script type="text/javascript" src="https://code.angularjs.org/1.2.28/angular-resource.min.js"></script>
+        
+        <script type="text/javascript" src="https://code.angularjs.org/1.2.28/angular-mocks.js"></script>
+        
+        <script type="text/javascript" src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/js/toastr.min.js"></script>
+        
+        <script src="js/d3.min.js"></script>
+        
+        <script src="js/angular-charts.min.js"></script>
+        
+        
+        <!--Application scripts-->
+        <script type="text/javascript" src="app/app.js"></script>
+        
+        <!--Services-->
+        <script type="text/javascript" src="common/services/common.services.js"></script>
+        
+        <script type="text/javascript" src="common/services/productResource.js"></script>
+        
+        <script type="text/javascript" src="common/services/productResourceMock.js"></script>
+        
+        <script type="text/javascript" src="common/services/productService.js"></script>
+
+        <!--Product Controller-->
+        <script type="text/javascript" src="app/products/productListController.js"></script>
+       
+        <script type="text/javascript" src="app/products/productDetailController.js"></script>
+        
+        <script type="text/javascript" src="app/products/productEditController.js"></script>
+        
+        
+        <!--Price Controller-->
+        <script type="text/javascript" src="app/prices/priceAnalyticsController.js"></script>
+
+
+        
+    </head>
+
+    <body ng-app="productManagement">
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                
+                <a class="navbar-brand"
+                   ui-sref="home">Online Shopping Cart</a>
+                
+                <div class="navbar-header">
+                    <button type="button"
+                            class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a ui-sref="productList">Product List</a></li>
+                        <li><a ui-sref="productEdit.info({productId:0})"><i class="glyphicon glyphicon-plus">Add Product</i></a></li>
+                        <li><a ui-sref="priceAnalytics">Price Analytics</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+        </nav>
+        <div class="container">
+            <div ui-view></div>
+        </div>
+    </body>
+
+</html>
